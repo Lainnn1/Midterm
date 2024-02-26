@@ -74,36 +74,22 @@ print(is_valid_url(url2))  # Output: False
 
 #birthday code
 def days_since_birthday(birthday):
-    # Extracting birth day, month, and year from the birthday string
-    birth_day = int(birthday[:2])
-    birth_month = int(birthday[3:5])
-    birth_year = int(birthday[6:])
+    from datetime import datetime, timedelta
 
-    # Getting the current date
-    import datetime
-    current_date = datetime.date.today()
+    # Convert birthday string to a datetime object
+    birthdate = datetime.strptime(birthday, "%d-%m-%Y")
 
-    # Initializing variables to count the total number of days
-    total_days = 0
+    # Get current date
+    current_date = datetime.now()
 
-    # Loop through each year from birth year + 1 to current year - 1
-    year = birth_year + 1
-    while year < current_date.year:
-        # Add 365 days to total days for non-leap years
-        if year % 4 != 0 or (year % 100 == 0 and year % 400 != 0):
-            total_days += 365
-        # Add 366 days to total days for leap years
-        else:
-            total_days += 366
-        year += 1
+    # Calculate the difference in days
+    days_passed = (current_date - birthdate).days
 
-    # Subtracting the days from the birth month and day to the end of the birth year
-    total_days -= (datetime.date(birth_year, 12, 31) - datetime.date(birth_year, birth_month, birth_day)).days
+    return days_passed
 
-    # Subtracting the days from the current year to the current month and day
-    total_days -= (current_date - datetime.date(current_date.year, 1, 1)).days
-
-    return total_days
+# Test the function
+birthday = "01-01-2000"
+print("Days since birthday:", days_since_birthday(birthday))
 
 # Test the function
 birthday = "01-07-2004"
