@@ -91,7 +91,4 @@ def days_since_birthday(birthday):
 birthday = "01-01-2000"
 print("Days since birthday:", days_since_birthday(birthday))
 
-# Test the function
-birthday = "01-07-2004"
-print("Days since birthday:", days_since_birthday(birthday))
 
