@@ -25,22 +25,15 @@ def palindrome(word):
         return True
     else:
         return False
+word1 = "1414884937242655719669145562427394884141"
+word2 = "6800923757255865070000705685527573290086"
+word3 = "6892149109325320763773670235239019412986"
+word4 = "9847255590886266818998186626880955527489"
 
-# Given numbers
-numbers = [
-    "1414884937242655719669145562427394884141",
-    "6800923757255865070000705685527573290086",
-    "6892149109325320763773670235239019412986",
-    "9847255590886266818998186626880955527489"
-]
-
-# Check if each number is a palindrome
-for num in numbers:
-    if palindrome(num):
-        print(f"{num} is a palindrome.")
-    else:
-        print(f"{num} is NOT a palindrome.")
-
+print(palindrome(word1))
+print(palindrome(word2))
+print(palindrome(word3))
+print(palindrome(word4))
 
 
 #pattern question
